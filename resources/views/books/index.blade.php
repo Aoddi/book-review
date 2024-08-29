@@ -3,7 +3,11 @@
 @section('content')
     <h1 class="mb-10 text-2xl">Книги</h1>
 
-    <form action=""></form>
+    <form action="{{ route('books.index') }}" method="GET" class="mb-4 flex items-center space-x-2">
+        <input type="text" class="input h-10" name="title" placeholder="Поиск по названию" value="{{ request('title') }}">
+        <button type="submit" class="btn h-10">Поиск</button>
+        <a href="{{ route('books.index') }}" class="btn h-10">Сбросить</a>
+    </form>
 
     <ul>
         @forelse($books as $book)
